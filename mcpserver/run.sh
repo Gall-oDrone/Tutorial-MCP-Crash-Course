@@ -10,7 +10,6 @@
 #   --volume .:/app             Mount the current directory to `/app` so code changes don't require an image rebuild
 #   --volume /app/.venv         Mount the virtual environment separately, so the developer's environment doesn't end up in the container
 #   --publish 8000:8000         Expose the web server port 8000 to the host
-#   -it $(docker build -q .)    Build the image, then use it as a run target
 #   $@                          Pass any arguments to the container
 
 if [ -t 1 ]; then
@@ -19,11 +18,17 @@ else
     INTERACTIVE=""
 fi
 
+# Build the image explicitly first
+echo "Building Docker image..."
+docker build -t mcpserver .
+
+# Run the container
+echo "Running Docker container..."
 docker run \
     --rm \
     --volume .:/app \
     --volume /app/.venv \
     --publish 8000:8000 \
     $INTERACTIVE \
-    $(docker build -q .) \
+    mcpserver \
     "$@"

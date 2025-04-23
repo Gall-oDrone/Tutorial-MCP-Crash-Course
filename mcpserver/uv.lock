@@ -467,7 +467,7 @@ wheels = [
 ]
 
 [[package]]
-name = "uv-docker-example"
+name = "mcp-server-example"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
