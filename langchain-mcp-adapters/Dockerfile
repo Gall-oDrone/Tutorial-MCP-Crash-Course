@@ -33,4 +33,4 @@ ENV PATH="/app/.venv/bin:$PATH"
 ENTRYPOINT []
 
 # Run the mcp server directly
-CMD ["python", "-m", "langchain-mcp-adapters.server"]
+CMD ["python", "-m", "servers/math_server"]
