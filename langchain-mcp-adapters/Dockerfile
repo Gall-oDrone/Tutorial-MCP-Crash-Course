@@ -15,7 +15,7 @@ COPY pyproject.toml .
 COPY uv.lock .
 
 # Install FastMCP directly with pip first
-RUN pip install fastmcp asyncio langchain-core langchain-mcp-adapters langgraph langchain-openai python-dotenv
+RUN pip install fastmcp asyncio langchain-core langchain-mcp-adapters langgraph langchain-openai python-dotenv isort
 
 # Install the project's dependencies 
 RUN --mount=type=cache,target=/root/.cache/uv \
