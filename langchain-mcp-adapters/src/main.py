@@ -26,7 +26,7 @@ async def main():
             agent = create_react_agent(llm,tools)
 
             result = await agent.ainvoke({
-                "messages": [HumanMessage(content="what is 2 * 2?")]
+                "messages": [HumanMessage(content="what is 2 + 2?")]
             })
             print(result["messages"][-1].content)
 
